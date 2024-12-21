@@ -1,0 +1,3 @@
+template-file-path: source/cfn/templates/main.template
+parameters: {}
+tags: {}
