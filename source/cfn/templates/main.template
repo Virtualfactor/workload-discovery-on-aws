@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Description: Workload Discovery on AWS Main Template (SO0075a) - Solution - Main Template (uksb-1r0720e27) (version:<VERSION>)
+Description: Workload Discovery on AWS Main Template (SO0075a) - Solution - Main Template (uksb-1r0720e27) (version:v2.2.0)
 
 Transform: AWS::Serverless-2016-10-31
 
@@ -435,10 +435,10 @@ Mappings:
       AppName: workload-discovery
       SolutionName: Workload Discovery On AWS
       ApplicationType: AWS-Solutions
-      DeploymentBucketNamePrefix: <BUCKET_NAME>
-      DeploymentBucketKey: <SOLUTION_NAME>/<VERSION>
-      ImageVersion: <IMAGE_VERSION>
-      SolutionVersion: <VERSION>
+      DeploymentBucketNamePrefix: solutions
+      DeploymentBucketKey: workload-discovery-on-aws/v2.2.0
+      ImageVersion: workload-discovery-on-aws-6
+      SolutionVersion: v2.2.0
       NodeLambdaRuntime: nodejs20.x
       PythonLambdaRuntime: python3.12
     DiscoveryTaskFrequency:
@@ -476,7 +476,7 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: !FindInMap [Solution, Constants, PythonLambdaRuntime]
-      ReservedConcurrentExecutions: 1
+      # ReservedConcurrentExecutions: 1
       InlineCode: |
         import cfnresponse
         def handler (event, context):
